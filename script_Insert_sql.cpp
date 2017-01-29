@@ -86,7 +86,7 @@ int main(int argc, char const *argv[]){
 						arquivo << "insert into pokemon(nivel_felicidade, nivel, hp) values(" << num1 << "," << num2 << "," << num3 << ");\n";
 						numero_pokemons++;
 
-						while(num_ataques != 4){
+						while(num_ataques != 2){
 							cout << "Coloque os dados do ataque:\n";
 					 		cout << "Digite o tipo de ataque:\n";
 							cin >> auxiliar1;
