@@ -63,7 +63,7 @@ int main(int argc, char const *argv[]){
 
 				 	cout << "Digite o tipo da pokebola:\n";
 					cin >> auxiliar1;
-					cout << "Esta ocupada por um pokemon ?\n";
+					cout << "Esta ocupada por um pokemon ?y = sim  n = não\n";
 					cin >> aux;
 					if (!aux.compare("y")){
 						ocupada = true;
