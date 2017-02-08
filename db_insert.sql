@@ -1,0 +1,14 @@
+insert into treinador(nome, idade, cidade) values('thiago','pelotas',15);
+insert into box(tipo_ambiente, num_suportado, id_prof, id_treinador) values('terra',15,1,1);
+insert into pokebola(ocupada, tipo, id_box, id_treinador) values(1,'masterball',2,1);
+insert into pokemon(nivel_felicidade, nivel, hp) values(44,55,80);
+insert into ataque(tipo, ccuracy, dano) values('fogo',22,44);
+insert into tem(id_pokemon, id_ataque) values(1,1);
+insert into ataque(tipo, ccuracy, dano) values('agua',33,13);
+insert into tem(id_pokemon, id_ataque) values(1,2);
+insert into ataque(tipo, ccuracy, dano) values('terra',13,31);
+insert into tem(id_pokemon, id_ataque) values(1,3);
+insert into ataque(tipo, ccuracy, dano) values('terra',12,33);
+insert into tem(id_pokemon, id_ataque) values(1,4);
+insert into evolução2(id_pokemon, peso, nome, CP, tipo2) values(1,44,'caterpie',556,'grama');
+insert into treinador(nome, idade, cidade) values('leonardo','pelotas',21);

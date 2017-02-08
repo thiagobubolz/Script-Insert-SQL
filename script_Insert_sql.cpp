@@ -147,6 +147,8 @@ int main(int argc, char const *argv[]){
 		cin >> aux;
 		if (!aux.compare("y")){
 			terminou = true;
+			continua = true;
+			pergunta = true;
 		}else{
 			terminou = false;
 		}
