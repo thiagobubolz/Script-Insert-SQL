@@ -1,6 +1,8 @@
 #include <iostream>
 #include <fstream>
+#include <stdlib.h>			
 #include <string>
+#include <time.h>
 
 using namespace std;
 
@@ -9,13 +11,18 @@ int main(int argc, char const *argv[]){
 	string auxiliar1, auxiliar2, auxiliar3;
 	int num1, num2, num3;
 	string aux;
-	int num_treinadores = 0;
+	int num_treinadores = 5;
 	bool terminou = true;
 	bool continua = true;
+	bool pergunta = false;
 	int numero_pokebolas = 0;
-	int numero_pokemons = 0;
-	int numero_ataques_totais = 0;
-	int numero_boxes = 1;
+	int numero_pokemons = 53;
+	int numero_ataques_totais = 106;
+	int numero_boxes = 9;
+
+	srand (time(NULL));
+
+	int random;
 
 	ofstream arquivo;
 	arquivo.open("db_insert.sql", ios::app);
@@ -26,16 +33,15 @@ int main(int argc, char const *argv[]){
 		cout << "Digite a cidade do treinador\n";
 		cin >> auxiliar2;
 		cout << "Digite a idade do treinador\n";
-		cin >> num1;
+		num1 = rand() % 100 + 1;
 
 		cout << "\n\n";
 
-		arquivo << "insert into treinador(nome, idade, cidade) values(" << "'" << auxiliar1 << "'" <<  "," << "'" << auxiliar2 << "'" <<  "," << num1 << ");\n";
+		arquivo << "insert into treinador(nome, idade, cidade) values(" << "'" << auxiliar1 << "'" <<  "," << "'" << num1 << "'" <<  "," << auxiliar2 << ");\n";
 
 		num_treinadores++;
 
 		while(continua){
-			bool pergunta = false;
 			int num_suportado;
 
 			cout << "Adicionar o box ? y = sim  n = não\n";
@@ -44,7 +50,7 @@ int main(int argc, char const *argv[]){
 				cout << "Digite o ambiente do box:\n";
 				cin >> auxiliar1;
 				cout << "Digite o numero suportado\n";
-				cin >> num_suportado;
+				num_suportado = rand() % 100 + 20;
 
 				cout << "\n\n";
 				arquivo << "insert into box(tipo_ambiente, num_suportado, id_prof, id_treinador) values(" <<  "'" << auxiliar1 <<  "'" << "," << num_suportado << "," << 1 << "," << num_treinadores << ");\n";
@@ -76,11 +82,11 @@ int main(int argc, char const *argv[]){
 				 	if (ocupada){
 				 		cout << "Coloque os dados do pokemon:\n";
 				 		cout << "Digite o nivel de nivel de felicidade:\n";
-						cin >> num1;
+						num1 = rand() % 100 + 1;
 						cout << "Digite o nível do pokemon\n";
-						cin >> num2;
+						num2 = rand() % 100 + 1;
 						cout << "Digite o HP do pokemon\n";
-						cin >> num3;
+						num3 = rand() % 100 + 1;
 
 						cout << "\n\n";
 						arquivo << "insert into pokemon(nivel_felicidade, nivel, hp) values(" << num1 << "," << num2 << "," << num3 << ");\n";
@@ -91,9 +97,9 @@ int main(int argc, char const *argv[]){
 					 		cout << "Digite o tipo de ataque:\n";
 							cin >> auxiliar1;
 							cout << "Digite a accuracy:\n";
-							cin >> num1;
+							num1 = rand() % 100 + 1;
 							cout << "Digite o dano do ataque:\n";
-							cin >> num2;
+							num2 = rand() % 100 + 1;
 
 							cout << "\n\n";
 							arquivo << "insert into ataque(tipo, ccuracy, dano) values(" <<  "'" << auxiliar1 <<  "'" << "," << num1 << "," << num2 << ");\n";
@@ -102,13 +108,13 @@ int main(int argc, char const *argv[]){
 							arquivo << "insert into tem(id_pokemon, id_ataque) values(" << numero_pokemons << "," << numero_ataques_totais << ");\n";
 						}
 						cout << "Coloque a evolução do pokemon 1 2 ou 3:\n";
-						cin >> num1;
+						num1 = rand() % 3 + 1;
 				 		cout << "Digite o peso do pokemon:\n";
-						cin >> num2;
+						num2 = rand() % 100 + 1;
 						cout << "Digite o nome do pokemon:\n";
 						cin >> auxiliar1;
 						cout << "Digite o CP do pokemon:\n";
-						cin >> num3;
+						num3 = rand() % 2000 + 1;
 						cout << "\n\n";
 
 						if(num1 == 1){
@@ -134,6 +140,7 @@ int main(int argc, char const *argv[]){
 					if(numero_pokebolas > num_suportado){
 					 	cout << "O numero máximo de pokebolas foi alcansado adicione outro box \n";
 					 	pergunta = false;
+					 	numero_pokebolas = 0;
 					}
 				}
 
