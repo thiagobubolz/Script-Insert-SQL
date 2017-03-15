@@ -98,9 +98,6 @@ CREATE TABLE `evolucao3` (
   CONSTRAINT `evolucao3_ibfk_1` FOREIGN KEY (`id_pokemon`) REFERENCES `pokemon` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-
-
-
 CREATE TABLE `tem` (
   `id_pokemon` int(11) NOT NULL AUTO_INCREMENT,
   `id_ataque` int(11) NOT NULL,
