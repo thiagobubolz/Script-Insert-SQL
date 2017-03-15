@@ -61,7 +61,7 @@ CREATE TABLE `armazena` (
 
 
 CREATE TABLE `ataque` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `tipo` varchar(20) DEFAULT NULL,
   `ccuracy` int(11) NOT NULL,
   `dano` int(11) NOT NULL,
